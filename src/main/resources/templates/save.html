@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta chartset="UTF-8">
+	<title>Eduardo</title>
+	<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+	<br>
+	<h2>Pedidos</h2>
+		<form action="#" th:action="@{/save}" class="form-group" th:object="${pedido}" method="POST">
+		
+			<div class="form-group">
+				<label for="id_pedido">ID Pedido</label>
+				<input type="text" class="form-control" id="id_pedido" th:field="*{id_pedido}" name="id_pedido">
+			</div>
+			<input type="hidden" th:field="*{id}" name="" id="id">
+			<div class="form-group">
+				<label for="sku">SKU</label>
+				<input type="text" class="form-control" id="sku" th:field="*{sku}" name="sku">
+			</div>
+			
+			<div class="form-group">
+				<label for="cantidad">Cantidad</label>
+				<input type="text" class="form-control" id="cantidad" th:field="*{cantidad}" name="cantidad">
+			</div>
+			
+			<div class="form-group">
+				<label for="price">Precio</label>
+				<input type="text" class="form-control" id="price" th:field="*{price}" name="price">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+		
+		</form>
+	
+	</div>
+	
+
+</body>
+</html>

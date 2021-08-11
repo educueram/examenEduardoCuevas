@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta chartset="UTF-8">
+	<title>Eduardo</title>
+	<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<div>
+			<a href="/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+			<div>
+				<h2>Información pedido</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id Pedido</th>
+							<th>SKU</th>
+							<th>TOTAL</th>
+							<th>DIA VENTA</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="pedido : ${listPedidos}">
+							<td th:text="${pedido.id}">
+							<td th:text="">
+							<td th:text="${pedido.total}">
+							<td th:text="${pedido.date_sale}">
+							<td><a th:href="@{/save/{id}(id=${pedido.id})}">Editar</a></td>
+							<td><a th:href="@{/delete/{id}(id=${pedido.id})}">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			
+			</div>
+		
+		
+	</div>
+	
+
+</body>
+</html>
