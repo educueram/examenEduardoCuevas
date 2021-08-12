@@ -25,6 +25,9 @@ public class PedidoDetalle {
 		@Column
 		private Double price;
 		
+		@Column
+		private String producto;
+		
 		//TODO: RELACION LLAVE FORANEA
 
 		public Long getId() {
@@ -55,7 +58,7 @@ public class PedidoDetalle {
 			return cantidad;
 		}
 
-		public void setAmount(Integer cantidad) {
+		public void setCantidad(Integer cantidad) {
 			this.cantidad = cantidad;
 		}
 
@@ -65,6 +68,14 @@ public class PedidoDetalle {
 
 		public void setPrice(Double price) {
 			this.price = price;
+		}
+
+		public String getProducto() {
+			return producto;
+		}
+
+		public void setProducto(String producto) {
+			this.producto = producto;
 		}
 		
 

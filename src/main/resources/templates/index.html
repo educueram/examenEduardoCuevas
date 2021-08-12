@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta chartset="UTF-8">
-	<title>Eduardo</title>
+	<title>Eduardo Examen</title>
 	<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
@@ -10,27 +10,31 @@
 	<div class="container">
 		<br>
 		<div>
-			<a href="/save/0" class="btn btn-primary">Agregar</a>
+			<a href="/save/0" class="btn btn-primary">Crear Pedido</a>
 		</div>
-			<div>
-				<h2>Información pedido</h2>
+		
+		<h2 th:if="${listaPedidos.isEmpty()}">No hay pedidos</h2>
+			<div th:if="${!listaPedidos.isEmpty()}">
+				<h2>Información de pedidos</h2>
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Id Pedido</th>
+							<th>ID</th>
+							<th>PRODUCTO</th>
 							<th>SKU</th>
 							<th>TOTAL</th>
-							<th>DIA VENTA</th>
+							<th>PRECIO</th>
 							<th></th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="pedido : ${listPedidos}">
+						<tr th:each="pedido : ${listaPedidos}">
 							<td th:text="${pedido.id}">
-							<td th:text="">
-							<td th:text="${pedido.total}">
-							<td th:text="${pedido.date_sale}">
+							<td th:text="${pedido.producto}">
+							<td th:text="${pedido.sku}">
+							<td th:text="${pedido.cantidad}">
+							<td th:text="${'$ ' + pedido.price}">
 							<td><a th:href="@{/save/{id}(id=${pedido.id})}">Editar</a></td>
 							<td><a th:href="@{/delete/{id}(id=${pedido.id})}">Eliminar</a></td>
 						</tr>
